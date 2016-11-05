@@ -8,7 +8,7 @@ describe('store', () => {
 	it('is a Redux store configured with the correct reducer', () => {
 		const store = makeStore()
 		expect(store.getState()).to.equal(fromJS({
-			moves: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+			board: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 			turns: 0
 		}))
 

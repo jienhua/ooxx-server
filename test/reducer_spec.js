@@ -7,14 +7,14 @@ describe('reducer', () => {
 
 	it('handles PLACE', ()=> {
 		const state = fromJS({
-			moves: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+			board: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 			turns: 0,
 			startPlayer: 1
 		})
 		const action = {type: 'PLACE', move:4}
 		const nextState = reducer(state, action)
 		expect(nextState).to.equal(fromJS({
-			moves: [[-1,-1,-1],[-1,1,-1],[-1,-1,-1]],
+			board: [[-1,-1,-1],[-1,1,-1],[-1,-1,-1]],
 			turns: 1,
 			startPlayer:1
 		}))
@@ -22,7 +22,7 @@ describe('reducer', () => {
 
 	it('handles RESET', () => {
 		const state = fromJS({
-			moves: [[1,-1,0],[-1,-1,1],[-1,0,-1]],
+			board: [[1,-1,0],[-1,-1,1],[-1,0,-1]],
 			turns: 4,
 			startPlayer: 1
 		})
@@ -30,14 +30,14 @@ describe('reducer', () => {
 		const nextState = reducer(state, action)
 
 		expect(nextState).to.equal(fromJS({
-			moves: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+			board: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 			turns: 0
 		}))
 	})
 
 	it('play a game', () => {
 		const state = fromJS({
-			moves: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+			board: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 			turns: 0,
 			startPlayer: 1
 		})

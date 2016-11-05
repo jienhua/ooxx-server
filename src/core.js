@@ -46,7 +46,7 @@ const whoTurn = function(turns, startPlayer){
 }
 
 export const INITIAL_STATE = fromJS({
-	moves: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+	board: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 	turns: 0
 })
 
@@ -55,23 +55,24 @@ export const INITIAL_STATE = fromJS({
 export function addMove(state, move){
 	// return state.update('moves', moves => moves.push(move))
 	
-	const moves = state.get('moves').updateIn(
+	const board = state.get('board').updateIn(
 			[move/3, move%3],
 			value => whoTurn(state.get('turns'), state.get('startPlayer'))
 		)
 
 	
 	const turns = state.get('turns')
-	const result = checkWin(moves, state.get('turns'), state.get('startPlayer'))
+	const result = checkWin(board, state.get('turns'), state.get('startPlayer'))
 	if( result !== -1){
-		return state.remove('moves')
-					.remove('turns')
+		console.log(state.get('board').toJS())
+		return state.remove('turns')
 					.remove('startPlayer')
 					.set('winner', result)
+					.merge({board: board})
 	}else{
 
 		return state.merge({
-			moves: moves,
+			board: board,
 			turns: turns + 1
 		})
 	}
@@ -79,7 +80,7 @@ export function addMove(state, move){
 
 export function reset(state){
 	return fromJS({
-			moves: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+			board: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 			turns: 0
 			})
 }

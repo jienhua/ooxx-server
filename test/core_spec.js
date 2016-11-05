@@ -9,7 +9,7 @@ describe('application logic', () => {
 
 		it('add a movie to the state', () => {
 			const state = fromJS({
-				moves: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+				board: [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 				turns: 0,
 				startPlayer: 0
 			})
@@ -17,7 +17,7 @@ describe('application logic', () => {
 			
 			const nextState = addMove(state, move)
 			expect(nextState).to.equal(fromJS({
-				moves: [[0,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+				board: [[0,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 				turns:1,
 				startPlayer: 0
 			}))
@@ -26,7 +26,7 @@ describe('application logic', () => {
 
 		it('add a movie to state 2', () =>{
 			const state = fromJS({
-				moves : [[0,-1,-1],[-1,-1,-1],[-1,-1,-1]],
+				board : [[0,-1,-1],[-1,-1,-1],[-1,-1,-1]],
 				turns: 1,
 				startPlayer: 0
 			})
@@ -34,7 +34,7 @@ describe('application logic', () => {
 
 			const nextState = addMove(state, move)
 			expect(nextState).to.equal(fromJS({
-				moves: [[0,-1,-1],[1,-1,-1],[-1,-1,-1]],
+				board: [[0,-1,-1],[1,-1,-1],[-1,-1,-1]],
 				turns: 2,
 				startPlayer: 0
 			}))
@@ -44,7 +44,7 @@ describe('application logic', () => {
 
 		it('check winner', () =>{
 			const state = fromJS({
-				moves: [[-1,0,-1],[1,-1,1],[-1,0,-1]],
+				board: [[-1,0,-1],[1,-1,1],[-1,0,-1]],
 				turns: 4,
 				startPlayer:1
 			})
@@ -57,7 +57,7 @@ describe('application logic', () => {
 
 		it('check winner 2', () =>{
 			const state = fromJS({
-				moves: [[1,0,-1],[1,-1,1],[-1,0,-1]],
+				board: [[1,0,-1],[1,-1,1],[-1,0,-1]],
 				turns: 5,
 				startPlayer:1
 			})
