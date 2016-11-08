@@ -86,5 +86,5 @@ export function reset(state){
 }
 
 export function start(state){
-	return state.get('startPlayer', Math.round(Math.random()))
+	return state.set('startPlayer', Math.round(Math.random()))
 }
