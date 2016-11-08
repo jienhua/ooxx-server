@@ -2,7 +2,8 @@ import {List, Map, fromJS} from 'immutable'
 
 const checkWin = function(moves, turns, startPlayer){
 	const temp = moves.toJS()
-	const curPlayer = whoTurn(turns)
+	const curPlayer = whoTurn(turns,startPlayer)
+
 	for(let i = 0; i < 3; i++){
 		if(temp[i][0] === curPlayer &&
 		   temp[i][1] === curPlayer &&
@@ -62,7 +63,6 @@ export function addMove(state, move){
 	
 	const turns = state.get('turns')
 	const result = checkWin(board, state.get('turns'), state.get('startPlayer'))
-
 	if( result !== -1){
 		console.log(state.get('board').toJS())
 		return state.remove('turns')
