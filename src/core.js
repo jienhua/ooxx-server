@@ -31,7 +31,6 @@ const checkWin = function(moves, turns, startPlayer){
 	   temp[1][1] === curPlayer){
 		return curPlayer
 	}
-
 	return -1
 
 }
@@ -63,6 +62,7 @@ export function addMove(state, move){
 	
 	const turns = state.get('turns')
 	const result = checkWin(board, state.get('turns'), state.get('startPlayer'))
+
 	if( result !== -1){
 		console.log(state.get('board').toJS())
 		return state.remove('turns')
