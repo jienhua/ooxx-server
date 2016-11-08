@@ -1,5 +1,5 @@
 # ooxx-server
-OOXX is Taiwanese way to say Tic Tac Toe. This project is a full stack React application with using Redux and socket for handing data transfer.
+OOXX is Taiwanese way to say Tic Tac Toe. This project is a full stack React application with using Redux and socket.io for handing data transfer.
 
 
 ## Installation
